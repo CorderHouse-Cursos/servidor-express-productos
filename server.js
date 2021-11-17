@@ -1,9 +1,9 @@
-const app = require('express')();
+const express = require('express');
 const Contenedor = require('./contenedor');
 const PORT = 8080;
 
 
-
+const app = express()
 
 app.get("/productos", async (req, res) => {
    const contenedor = new Contenedor("productos.txt");
@@ -31,6 +31,10 @@ app.get("/productoRandom", async (req, res) => {
 
    res.json(producto);
 
+})
+
+app.get("", (req, res) => {
+   res.json({ "message": "Bienvenido a la API de productos" })
 })
 
 
